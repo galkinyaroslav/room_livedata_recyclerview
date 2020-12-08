@@ -43,6 +43,9 @@ public class BarcodeAdapter extends RecyclerView.Adapter<BarcodeAdapter.BarcodeH
         this.barcodes=barcodes;
         notifyDataSetChanged();
     }
+    public Barcode getBarcodeAt(int position){
+        return barcodes.get(position);
+    }
 
     class BarcodeHolder extends RecyclerView.ViewHolder{
         private final TextView textViewName;

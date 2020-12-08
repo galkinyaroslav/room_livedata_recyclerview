@@ -22,7 +22,7 @@ public class BarcodeViewModel extends AndroidViewModel {
     public void update(Barcode barcode){
         repository.update(barcode);
     }
-    public void dalete(Barcode barcode){
+    public void delete(Barcode barcode){
         repository.delete(barcode);
     }
     public void deleteAllBarcodes(){

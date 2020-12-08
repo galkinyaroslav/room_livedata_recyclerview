@@ -11,7 +11,7 @@
         android:theme="@style/Theme.Room_livedata_recyclerview">
 
         <activity android:name=".AddBarcodesActivity"
-            android:parentActivityName=".MainActivity"></activity>
+            android:parentActivityName=".MainActivity"/>
 
 
         <activity android:name=".MainActivity"
