@@ -9,19 +9,19 @@ public class Barcode {
     @PrimaryKey(autoGenerate = true)
     private int id;
 
-    private String barcodenum;
-    private String name;
-    private String docname;
-    private String docdate;
-    private String docnum;
-    private String date;
-    private String invnum;
-    private String factnum;
-    private String passportnum;
-    private String fnquantity;
-    private String fncost;
-    private String buquantity;
-    private String bucost;
+    private final String barcodenum;
+    private final String name;
+    private final String docname;
+    private final String docdate;
+    private final String docnum;
+    private final String date;
+    private final String invnum;
+    private final String factnum;
+    private final String passportnum;
+    private final String fnquantity;
+    private final String fncost;
+    private final String buquantity;
+    private final String bucost;
 
     public Barcode(String barcodenum, String name, String docname, String docdate, String docnum, String date, String invnum, String factnum, String passportnum, String fnquantity, String fncost, String buquantity, String bucost) {
         this.barcodenum = barcodenum;

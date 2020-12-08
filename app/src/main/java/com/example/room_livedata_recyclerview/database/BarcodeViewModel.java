@@ -9,8 +9,8 @@ import androidx.lifecycle.LiveData;
 import java.util.List;
 
 public class BarcodeViewModel extends AndroidViewModel {
-    private BarcodeRepository repository;
-    private LiveData<List<Barcode>> allBarcodes;
+    private final BarcodeRepository repository;
+    private final LiveData<List<Barcode>> allBarcodes;
     public BarcodeViewModel(@NonNull Application application) {
         super(application);
         repository=new BarcodeRepository(application);

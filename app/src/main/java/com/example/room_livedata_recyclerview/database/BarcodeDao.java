@@ -23,7 +23,7 @@ public interface BarcodeDao {
     @Query("DELETE FROM barcode_table")
     void deleteAllBarcodes();
 
-    @Query("SELECT*FROM barcode_table ORDER BY name DESC")
+    @Query("SELECT*FROM barcode_table ORDER BY name ASC")
     LiveData<List<Barcode>> getALLBarcodes();
 
 }

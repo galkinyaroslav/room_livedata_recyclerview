@@ -8,8 +8,8 @@ import androidx.lifecycle.LiveData;
 import java.util.List;
 
 public class BarcodeRepository {
-    private BarcodeDao barcodeDao;
-    private LiveData<List<Barcode>> allBarcodes;
+    private final BarcodeDao barcodeDao;
+    private final LiveData<List<Barcode>> allBarcodes;
 
     public BarcodeRepository(Application application) {
         BarcodeDatabase database = BarcodeDatabase.getInstance(application);
@@ -18,22 +18,22 @@ public class BarcodeRepository {
     }
     public void insert(Barcode barcode){
         new InsertBarcodeAsyncTask(barcodeDao).execute(barcode);
-    };
+    }
     public void update(Barcode barcode){
         new UpdateBarcodeAsyncTask(barcodeDao).execute(barcode);
-    };
+    }
     public void delete(Barcode barcode){
         new DeleteBarcodeAsyncTask(barcodeDao).execute(barcode);
-    };
+    }
     public void deleteAllBarcodes(){
         new DeleteAllBarcodeAsyncTask(barcodeDao).execute();
-    };
+    }
     public LiveData<List<Barcode>> getAllBarcodes(){
         return allBarcodes;
-    };
+    }
 
     private static class InsertBarcodeAsyncTask extends AsyncTask<Barcode,Void,Void>{
-        private BarcodeDao barcodeDao;
+        private final BarcodeDao barcodeDao;
         private InsertBarcodeAsyncTask(BarcodeDao barcodeDao){
             this.barcodeDao=barcodeDao;
         }
@@ -45,7 +45,7 @@ public class BarcodeRepository {
     }
 
     private static class UpdateBarcodeAsyncTask extends AsyncTask<Barcode,Void,Void>{
-        private BarcodeDao barcodeDao;
+        private final BarcodeDao barcodeDao;
         private UpdateBarcodeAsyncTask(BarcodeDao barcodeDao){
             this.barcodeDao=barcodeDao;
         }
@@ -57,7 +57,7 @@ public class BarcodeRepository {
     }
 
     private static class DeleteBarcodeAsyncTask extends AsyncTask<Barcode,Void,Void>{
-        private BarcodeDao barcodeDao;
+        private final BarcodeDao barcodeDao;
         private DeleteBarcodeAsyncTask(BarcodeDao barcodeDao){
             this.barcodeDao=barcodeDao;
         }
@@ -69,7 +69,7 @@ public class BarcodeRepository {
     }
 
     private static class DeleteAllBarcodeAsyncTask extends AsyncTask<Void,Void,Void>{
-        private BarcodeDao barcodeDao;
+        private final BarcodeDao barcodeDao;
         private DeleteAllBarcodeAsyncTask(BarcodeDao barcodeDao){
             this.barcodeDao=barcodeDao;
         }

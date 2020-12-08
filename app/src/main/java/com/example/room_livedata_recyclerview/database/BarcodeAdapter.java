@@ -6,7 +6,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.lifecycle.LiveData;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.room_livedata_recyclerview.R;
@@ -46,9 +45,9 @@ public class BarcodeAdapter extends RecyclerView.Adapter<BarcodeAdapter.BarcodeH
     }
 
     class BarcodeHolder extends RecyclerView.ViewHolder{
-        private TextView textViewName;
-        private TextView textViewBarcodenum;
-        private TextView textViewPriority;
+        private final TextView textViewName;
+        private final TextView textViewBarcodenum;
+        private final TextView textViewPriority;
 
         public BarcodeHolder(@NonNull View itemView) {
             super(itemView);

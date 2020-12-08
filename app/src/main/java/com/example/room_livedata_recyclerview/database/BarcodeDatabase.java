@@ -23,7 +23,7 @@ public abstract class BarcodeDatabase extends RoomDatabase {
         }
         return instance;
     }
-    private static RoomDatabase.Callback roomCallback= new RoomDatabase.Callback(){
+    private static final RoomDatabase.Callback roomCallback= new RoomDatabase.Callback(){
         @Override
         public void onCreate(@NonNull SupportSQLiteDatabase db) {
             super.onCreate(db);
@@ -31,7 +31,7 @@ public abstract class BarcodeDatabase extends RoomDatabase {
         }
     };
     private static class PopulateDbAsyncTask extends AsyncTask<Void,Void,Void>{
-        private BarcodeDao barcodeDao;
+        private final BarcodeDao barcodeDao;
 
         private PopulateDbAsyncTask(BarcodeDatabase db) {
             barcodeDao = db.barcodeDao();
