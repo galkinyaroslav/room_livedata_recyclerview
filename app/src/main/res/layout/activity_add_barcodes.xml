@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".AddBarcodesActivity">
+
+    <EditText
+        android:id="@+id/edit_text_barcodenum"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Штрихкод"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/edit_text_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Наименование"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/edit_text_docname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Наименование документа"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/edit_text_docdate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Дата документа"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/edit_text_docnum"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Номер документа"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/edit_text_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Год выпуска"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/edit_text_invnum"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Инвентарный номер"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/edit_text_factnum"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Заводской номер"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/edit_text_passportnum"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Номер паспорта"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/edit_text_fnquantity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Фактическое количество"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/edit_text_fncost"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Фактическая стоимость"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/edit_text_buquantity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Бухгалтерия: количество"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/edit_text_bucost"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Бухгалтерия: стоимость"
+        android:inputType="text" />
+
+
+</LinearLayout>
