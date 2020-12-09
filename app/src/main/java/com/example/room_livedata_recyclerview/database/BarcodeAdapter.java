@@ -6,6 +6,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.DiffUtil;
+import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.room_livedata_recyclerview.R;
@@ -14,9 +16,27 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class BarcodeAdapter extends RecyclerView.Adapter<BarcodeAdapter.BarcodeHolder> {
-    private List<Barcode> barcodes = new ArrayList<>();
+public class BarcodeAdapter extends ListAdapter<Barcode, BarcodeAdapter.BarcodeHolder> {
+    //private List<Barcode> barcodes = new ArrayList<>();
     private OnItemClickListener listener;
+
+    public BarcodeAdapter() {
+        super(DIFF_CALLBACK);
+    }
+
+    public static final DiffUtil.ItemCallback<Barcode> DIFF_CALLBACK = new DiffUtil.ItemCallback<Barcode>() {
+        @Override
+        public boolean areItemsTheSame(@NonNull Barcode oldItem, @NonNull Barcode newItem) {
+            return oldItem.getId() == newItem.getId();
+        }
+
+        @Override
+        public boolean areContentsTheSame(@NonNull Barcode oldItem, @NonNull Barcode newItem) {
+            return oldItem.getBarcodenum().equals(newItem.getBarcodenum()) &&
+                    oldItem.getId() == newItem.getId() &&
+                    oldItem.getName().equals(newItem.getName());
+        }
+    };
 
     @NonNull
     @Override
@@ -28,7 +48,7 @@ public class BarcodeAdapter extends RecyclerView.Adapter<BarcodeAdapter.BarcodeH
 
     @Override
     public void onBindViewHolder(@NonNull BarcodeHolder holder, int position) {
-        Barcode currentBarcode = barcodes.get(position);
+        Barcode currentBarcode = getItem(position);
 
         holder.textViewName.setText(currentBarcode.getName());
         holder.textViewBarcodenum.setText(currentBarcode.getBarcodenum());
@@ -36,18 +56,11 @@ public class BarcodeAdapter extends RecyclerView.Adapter<BarcodeAdapter.BarcodeH
         holder.textViewPriority.setText(String.valueOf(currentBarcode.getId()));//Change getId by getPriority if it added to database
     }
 
-    @Override
-    public int getItemCount() {
-        return barcodes.size();
-    }
 
-    public void setBarcodes(List<Barcode> barcodes) {
-        this.barcodes = barcodes;
-        notifyDataSetChanged();
-    }
+
 
     public Barcode getBarcodeAt(int position) {
-        return barcodes.get(position);
+        return getItem(position);
     }
 
     class BarcodeHolder extends RecyclerView.ViewHolder {
@@ -65,7 +78,7 @@ public class BarcodeAdapter extends RecyclerView.Adapter<BarcodeAdapter.BarcodeH
                 public void onClick(View v) {
                     int position = getAdapterPosition();
                     if (listener != null && position != RecyclerView.NO_POSITION) {
-                        listener.OnItemClick(barcodes.get(position));
+                        listener.OnItemClick(getItem(position));
                     }
                 }
             }));

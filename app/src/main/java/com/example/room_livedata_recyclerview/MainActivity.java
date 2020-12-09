@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onChanged(List<Barcode> barcodes) {//Update RecyclerView Data
                 //Toast.makeText(MainActivity.this,"onChanged",Toast.LENGTH_SHORT).show();
-                adapter.setBarcodes(barcodes);
+                adapter.submitList(barcodes);
             }
         });
 
