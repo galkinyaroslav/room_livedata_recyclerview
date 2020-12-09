@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Room_livedata_recyclerview">
 
-        <activity android:name=".AddBarcodesActivity"
+        <activity android:name=".AddEditBarcodesActivity"
             android:parentActivityName=".MainActivity"/>
 
 
