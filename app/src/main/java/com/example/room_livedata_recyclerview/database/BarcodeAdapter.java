@@ -54,6 +54,7 @@ public class BarcodeAdapter extends ListAdapter<Barcode, BarcodeAdapter.BarcodeH
         holder.textViewBarcodenum.setText(currentBarcode.getBarcodenum());
 
         holder.textViewPriority.setText(String.valueOf(currentBarcode.getId()));//Change getId by getPriority if it added to database
+
     }
 
 

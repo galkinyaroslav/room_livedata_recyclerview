@@ -31,4 +31,6 @@ public class BarcodeViewModel extends AndroidViewModel {
     public LiveData<List<Barcode>> getAllBarcodes(){
         return allBarcodes;
     }
+    public LiveData<Barcode> getTargetBarcode(String string){return repository.getTargetBarcode(string); }
+
 }

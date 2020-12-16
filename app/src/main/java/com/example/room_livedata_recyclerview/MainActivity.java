@@ -27,6 +27,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
     public static final int ADD_BARCODE_REQUEST = 1;
     public static final int EDIT_BARCODE_REQUEST = 2;
+    public static final int SCAN_BARCODE_REQUEST = 3;
 
     private BarcodeViewModel barcodeViewModel;
 
@@ -45,6 +46,17 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+        FloatingActionButton buttonScanBarcode = findViewById(R.id.button_scan_barcode);
+        buttonScanBarcode.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, BarcodeCaptureActivity.class);
+                startActivityForResult(intent, SCAN_BARCODE_REQUEST);
+
+            }
+        });
+
 
         RecyclerView recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -125,7 +137,7 @@ public class MainActivity extends AppCompatActivity {
             int id = data.getIntExtra(AddEditBarcodesActivity.EXTRA_ID, -1);
 
             if (id == -1) {
-                Toast.makeText(this, "Штрихкод не может бытьобновлен", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Штрихкод не может быть обновлен", Toast.LENGTH_SHORT).show();
                 return;
             }
             String barcodenum = data.getStringExtra(AddEditBarcodesActivity.EXTRA_BARCODENUM);

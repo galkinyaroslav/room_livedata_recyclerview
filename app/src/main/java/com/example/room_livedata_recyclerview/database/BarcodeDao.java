@@ -12,6 +12,7 @@ import java.util.List;
 
 @Dao
 public interface BarcodeDao {
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insert(Barcode barcodes);
 //    @Insert()
@@ -25,5 +26,8 @@ public interface BarcodeDao {
 
     @Query("SELECT*FROM barcode_table ORDER BY name ASC")
     LiveData<List<Barcode>> getALLBarcodes();
+
+    @Query("SELECT *  FROM barcode_table WHERE barcodenum LIKE :scannedBarcodeNumb")
+    LiveData<Barcode> getTargetBarcode(String scannedBarcodeNumb);
 
 }

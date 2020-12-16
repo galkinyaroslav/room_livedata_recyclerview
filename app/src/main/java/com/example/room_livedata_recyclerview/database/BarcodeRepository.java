@@ -10,7 +10,6 @@ import java.util.List;
 public class BarcodeRepository {
     private final BarcodeDao barcodeDao;
     private final LiveData<List<Barcode>> allBarcodes;
-
     public BarcodeRepository(Application application) {
         BarcodeDatabase database = BarcodeDatabase.getInstance(application);
         barcodeDao = database.barcodeDao();
@@ -31,6 +30,7 @@ public class BarcodeRepository {
     public LiveData<List<Barcode>> getAllBarcodes(){
         return allBarcodes;
     }
+    public LiveData<Barcode> getTargetBarcode(String string){return barcodeDao.getTargetBarcode(string); }
 
     private static class InsertBarcodeAsyncTask extends AsyncTask<Barcode,Void,Void>{
         private final BarcodeDao barcodeDao;
@@ -80,4 +80,15 @@ public class BarcodeRepository {
         }
     }
 
+//    private static class GetTargetBarcodeAsyncTask extends AsyncTask<String,Void,Void> {
+//        private final BarcodeDao barcodeDao;
+//        private GetTargetBarcodeAsyncTask(BarcodeDao barcodeDao) {this.barcodeDao=barcodeDao;
+//        }
+//
+//        @Override
+//        protected Void doInBackground(String... strings) {
+//            barcodeDao.getTargetBarcode(strings[0]);
+//            return null;
+//        }
+//    }
 }

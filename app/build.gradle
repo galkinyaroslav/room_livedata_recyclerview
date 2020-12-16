@@ -8,7 +8,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.room_livedata_recyclerview"
-        minSdkVersion 19
+        minSdkVersion 23
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -49,4 +49,7 @@ dependencies {
 
     implementation "androidx.room:room-runtime:$room_version"
     annotationProcessor "androidx.room:room-compiler:$room_version"
+
+    implementation 'com.google.android.gms:play-services-vision:20.1.3'
+
 }
