@@ -71,8 +71,8 @@ public final class BarcodeCaptureActivity extends AppCompatActivity implements B
     // constants used to pass extra data in the intent
     public static final String UseFlash = "UseFlash";
     public static boolean AUTOFOCUS = true;
-    public static final String BarcodeObject = "Barcode";
-
+//    public static final String BarcodeObject = "Barcode";
+public static final String EXTRA_SCANNED_BARCODENUM="com.example.room_livedata_recyclerview.EXTRA_SCANNED_BARCODENUM";
     private CameraSource mCameraSource;
     private CameraSourcePreview mPreview;
     private GraphicOverlay<BarcodeGraphic> mGraphicOverlay;
@@ -368,8 +368,10 @@ public final class BarcodeCaptureActivity extends AppCompatActivity implements B
 
         if (best != null) {
             Intent data = new Intent();
-            data.putExtra(BarcodeObject, best);
-            setResult(CommonStatusCodes.SUCCESS, data);
+            data.putExtra(EXTRA_SCANNED_BARCODENUM, best.displayValue);
+//            Toast.makeText(this,best.displayValue,Toast.LENGTH_SHORT).show();
+            setResult(RESULT_OK, data);
+
             finish();
             return true;
         }

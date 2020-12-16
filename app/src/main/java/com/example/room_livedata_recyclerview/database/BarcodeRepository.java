@@ -6,6 +6,7 @@ import android.os.AsyncTask;
 import androidx.lifecycle.LiveData;
 
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 public class BarcodeRepository {
     private final BarcodeDao barcodeDao;
@@ -30,7 +31,11 @@ public class BarcodeRepository {
     public LiveData<List<Barcode>> getAllBarcodes(){
         return allBarcodes;
     }
-    public LiveData<Barcode> getTargetBarcode(String string){return barcodeDao.getTargetBarcode(string); }
+    public Barcode getTargetBarcode(String string) throws ExecutionException, InterruptedException {
+        GetTargetBarcodeAsyncTask AsyncBarcode =new GetTargetBarcodeAsyncTask(barcodeDao);
+        AsyncBarcode.execute(string);
+        return AsyncBarcode.get();
+    }
 
     private static class InsertBarcodeAsyncTask extends AsyncTask<Barcode,Void,Void>{
         private final BarcodeDao barcodeDao;
@@ -80,15 +85,14 @@ public class BarcodeRepository {
         }
     }
 
-//    private static class GetTargetBarcodeAsyncTask extends AsyncTask<String,Void,Void> {
-//        private final BarcodeDao barcodeDao;
-//        private GetTargetBarcodeAsyncTask(BarcodeDao barcodeDao) {this.barcodeDao=barcodeDao;
-//        }
-//
-//        @Override
-//        protected Void doInBackground(String... strings) {
-//            barcodeDao.getTargetBarcode(strings[0]);
-//            return null;
-//        }
-//    }
+    private static class GetTargetBarcodeAsyncTask extends AsyncTask<String,Void,Barcode> {
+        private final BarcodeDao barcodeDao;
+        private GetTargetBarcodeAsyncTask(BarcodeDao barcodeDao) {this.barcodeDao=barcodeDao;
+        }
+
+        @Override
+        protected Barcode doInBackground(String... strings) {
+            return barcodeDao.getTargetBarcode(strings[0]);
+        }
+    }
 }

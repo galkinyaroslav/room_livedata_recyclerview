@@ -93,9 +93,13 @@ public class AddEditBarcodesActivity extends AppCompatActivity {
             editTextBuquantity.setText(intent.getStringExtra(EXTRA_BUQUANTITY));
             editTextBucost.setText(intent.getStringExtra(EXTRA_BUCOST));
 
-        } else {
+        } else if(intent.hasExtra(EXTRA_BARCODENUM)) {
             setTitle("Добавить штрихкод");
-        }
+            editTextBarcodenum.setText(intent.getStringExtra(EXTRA_BARCODENUM));
+        } else
+                {
+                    setTitle("Добавить штрихкод");
+                }
     }
 
     private void saveBarcode() {

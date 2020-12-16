@@ -1,5 +1,6 @@
 package com.example.room_livedata_recyclerview.database;
 
+import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
@@ -9,19 +10,74 @@ public class Barcode {
     @PrimaryKey(autoGenerate = true)
     private int id;
 
-    private final String barcodenum;
-    private final String name;
-    private final String docname;
-    private final String docdate;
-    private final String docnum;
-    private final String date;
-    private final String invnum;
-    private final String factnum;
-    private final String passportnum;
-    private final String fnquantity;
-    private final String fncost;
-    private final String buquantity;
-    private final String bucost;
+    private  String barcodenum=null;
+    private  String name=null;
+    private  String docname=null;
+    private  String docdate=null;
+    private  String docnum=null;
+    private  String date=null;
+    private  String invnum=null;
+    private  String factnum=null;
+    private  String passportnum=null;
+    private  String fnquantity=null;
+    private  String fncost=null;
+    private  String buquantity=null;
+    private  String bucost=null;
+
+    public Barcode() {
+    }
+
+    public void setBarcodenum(String barcodenum) {
+        this.barcodenum = barcodenum;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setDocname(String docname) {
+        this.docname = docname;
+    }
+
+    public void setDocdate(String docdate) {
+        this.docdate = docdate;
+    }
+
+    public void setDocnum(String docnum) {
+        this.docnum = docnum;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public void setInvnum(String invnum) {
+        this.invnum = invnum;
+    }
+
+    public void setFactnum(String factnum) {
+        this.factnum = factnum;
+    }
+
+    public void setPassportnum(String passportnum) {
+        this.passportnum = passportnum;
+    }
+
+    public void setFnquantity(String fnquantity) {
+        this.fnquantity = fnquantity;
+    }
+
+    public void setFncost(String fncost) {
+        this.fncost = fncost;
+    }
+
+    public void setBuquantity(String buquantity) {
+        this.buquantity = buquantity;
+    }
+
+    public void setBucost(String bucost) {
+        this.bucost = bucost;
+    }
 
     public Barcode(String barcodenum, String name, String docname, String docdate, String docnum, String date, String invnum, String factnum, String passportnum, String fnquantity, String fncost, String buquantity, String bucost) {
         this.barcodenum = barcodenum;

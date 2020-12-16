@@ -7,6 +7,7 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 public class BarcodeViewModel extends AndroidViewModel {
     private final BarcodeRepository repository;
@@ -31,6 +32,6 @@ public class BarcodeViewModel extends AndroidViewModel {
     public LiveData<List<Barcode>> getAllBarcodes(){
         return allBarcodes;
     }
-    public LiveData<Barcode> getTargetBarcode(String string){return repository.getTargetBarcode(string); }
+    public Barcode getTargetBarcode(String string) throws ExecutionException, InterruptedException {return repository.getTargetBarcode(string); }
 
 }

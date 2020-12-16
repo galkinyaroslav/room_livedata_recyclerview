@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.ItemTouchHelper;
@@ -22,6 +23,7 @@ import com.example.room_livedata_recyclerview.database.BarcodeViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -158,7 +160,45 @@ public class MainActivity extends AppCompatActivity {
             barcodeViewModel.update(barcode);
             Toast.makeText(this, "Штрихкод обновлен", Toast.LENGTH_SHORT).show();
 
-        } else {
+        }else if (requestCode == SCAN_BARCODE_REQUEST&& resultCode == RESULT_OK){
+            String scannedbarcodenum = data.getStringExtra(BarcodeCaptureActivity.EXTRA_SCANNED_BARCODENUM);
+            try{Barcode scannedbarcode=  barcodeViewModel.getTargetBarcode(scannedbarcodenum);
+
+               if (scannedbarcode!=null){
+               Intent intent = new Intent(MainActivity.this, AddEditBarcodesActivity.class);
+                   intent.putExtra(AddEditBarcodesActivity.EXTRA_ID, scannedbarcode.getId());
+                   intent.putExtra(AddEditBarcodesActivity.EXTRA_BARCODENUM, scannedbarcode.getBarcodenum());
+                   intent.putExtra(AddEditBarcodesActivity.EXTRA_NAME, scannedbarcode.getName());
+                   intent.putExtra(AddEditBarcodesActivity.EXTRA_DOCNAME, scannedbarcode.getDocname());
+                   intent.putExtra(AddEditBarcodesActivity.EXTRA_DOCDATE, scannedbarcode.getDocdate());
+                   intent.putExtra(AddEditBarcodesActivity.EXTRA_DOCNUM, scannedbarcode.getDocnum());
+                   intent.putExtra(AddEditBarcodesActivity.EXTRA_DATE, scannedbarcode.getDocdate());
+                   intent.putExtra(AddEditBarcodesActivity.EXTRA_INVNUM, scannedbarcode.getInvnum());
+                   intent.putExtra(AddEditBarcodesActivity.EXTRA_FACTNUM, scannedbarcode.getFactnum());
+                   intent.putExtra(AddEditBarcodesActivity.EXTRA_PASSPORTNUM, scannedbarcode.getPassportnum());
+                   intent.putExtra(AddEditBarcodesActivity.EXTRA_FNQUANTITY, scannedbarcode.getFnquantity());
+                   intent.putExtra(AddEditBarcodesActivity.EXTRA_FNCOST, scannedbarcode.getFncost());
+                   intent.putExtra(AddEditBarcodesActivity.EXTRA_BUQUANTITY, scannedbarcode.getBuquantity());
+                   intent.putExtra(AddEditBarcodesActivity.EXTRA_BUCOST, scannedbarcode.getBucost());
+
+                   startActivityForResult(intent, EDIT_BARCODE_REQUEST);
+                   Toast.makeText(this,"Значение получено! Наименование : "+barcodeViewModel.getTargetBarcode(scannedbarcodenum).getName(),Toast.LENGTH_LONG).show();
+            }else {
+                   Intent intent = new Intent(MainActivity.this, AddEditBarcodesActivity.class);
+                   intent.putExtra(AddEditBarcodesActivity.EXTRA_BARCODENUM, scannedbarcodenum);
+                   startActivityForResult(intent, ADD_BARCODE_REQUEST);
+
+                   Toast.makeText(this, "Не получено значение! Номер Штрихкода : "+scannedbarcodenum, Toast.LENGTH_SHORT).show();
+                }
+           }catch (InterruptedException e) {
+                e.printStackTrace();
+            } catch (ExecutionException e) {
+                e.printStackTrace();
+            }
+
+        }
+
+        else {
             Toast.makeText(this, "Штрихкод не сохранен", Toast.LENGTH_SHORT).show();
         }
 

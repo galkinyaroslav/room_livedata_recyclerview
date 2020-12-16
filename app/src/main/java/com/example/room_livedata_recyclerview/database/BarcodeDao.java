@@ -28,6 +28,6 @@ public interface BarcodeDao {
     LiveData<List<Barcode>> getALLBarcodes();
 
     @Query("SELECT *  FROM barcode_table WHERE barcodenum LIKE :scannedBarcodeNumb")
-    LiveData<Barcode> getTargetBarcode(String scannedBarcodeNumb);
+    Barcode getTargetBarcode(String scannedBarcodeNumb);
 
 }
