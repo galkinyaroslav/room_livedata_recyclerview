@@ -105,7 +105,7 @@ public static final String EXTRA_SCANNED_BARCODENUM="com.example.room_livedata_r
         gestureDetector = new GestureDetector(this, new CaptureGestureListener());
         scaleGestureDetector = new ScaleGestureDetector(this, new ScaleListener());
 
-        Snackbar.make(mGraphicOverlay, "Tap to capture. Pinch/Stretch to zoom",
+        Snackbar.make(mGraphicOverlay, "Нажмите на штрихкод для считывания. Растяните для увеличения",
                 Snackbar.LENGTH_LONG)
                 .show();
 
