@@ -13,14 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.example.room_livedata_recyclerview;
+package com.example.InventoryCheck;
 
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
 
-import com.example.room_livedata_recyclerview.camera.GraphicOverlay;
+import com.example.InventoryCheck.camera.GraphicOverlay;
 import com.google.android.gms.vision.barcode.Barcode;
 
 /**

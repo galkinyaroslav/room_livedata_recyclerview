@@ -1,4 +1,4 @@
-package com.example.room_livedata_recyclerview.database;
+package com.example.InventoryCheck.database;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,10 +10,7 @@ import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.room_livedata_recyclerview.R;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.example.InventoryCheck.R;
 
 
 public class BarcodeAdapter extends ListAdapter<Barcode, BarcodeAdapter.BarcodeHolder> {

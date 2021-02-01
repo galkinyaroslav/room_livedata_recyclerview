@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.example.room_livedata_recyclerview;
+package com.example.InventoryCheck;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
@@ -40,12 +40,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.room_livedata_recyclerview.camera.CameraSource;
-import com.example.room_livedata_recyclerview.camera.CameraSourcePreview;
-import com.example.room_livedata_recyclerview.camera.GraphicOverlay;
+import com.example.InventoryCheck.camera.CameraSource;
+import com.example.InventoryCheck.camera.CameraSourcePreview;
+import com.example.InventoryCheck.camera.GraphicOverlay;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
-import com.google.android.gms.common.api.CommonStatusCodes;
 
 import com.google.android.gms.vision.MultiProcessor;
 import com.google.android.gms.vision.barcode.Barcode;

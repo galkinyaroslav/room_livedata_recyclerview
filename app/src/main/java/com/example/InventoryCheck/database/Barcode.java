@@ -1,6 +1,5 @@
-package com.example.room_livedata_recyclerview.database;
+package com.example.InventoryCheck.database;
 
-import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 

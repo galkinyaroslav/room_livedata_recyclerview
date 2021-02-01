@@ -13,11 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.example.room_livedata_recyclerview;
+package com.example.InventoryCheck;
 
 import android.content.Context;
 
-import com.example.room_livedata_recyclerview.camera.GraphicOverlay;
+import com.example.InventoryCheck.camera.GraphicOverlay;
 import com.google.android.gms.vision.MultiProcessor;
 import com.google.android.gms.vision.Tracker;
 import com.google.android.gms.vision.barcode.Barcode;
@@ -30,7 +30,7 @@ class BarcodeTrackerFactory implements MultiProcessor.Factory<Barcode> {
     private GraphicOverlay<BarcodeGraphic> mGraphicOverlay;
     private Context mContext;
 
-    public BarcodeTrackerFactory(GraphicOverlay<com.example.room_livedata_recyclerview.BarcodeGraphic> mGraphicOverlay,
+    public BarcodeTrackerFactory(GraphicOverlay<com.example.InventoryCheck.BarcodeGraphic> mGraphicOverlay,
                                  Context mContext) {
         this.mGraphicOverlay = mGraphicOverlay;
         this.mContext = mContext;
@@ -38,8 +38,8 @@ class BarcodeTrackerFactory implements MultiProcessor.Factory<Barcode> {
 
     @Override
     public Tracker<Barcode> create(Barcode barcode) {
-        com.example.room_livedata_recyclerview.BarcodeGraphic graphic = new com.example.room_livedata_recyclerview.BarcodeGraphic(mGraphicOverlay);
-        return new com.example.room_livedata_recyclerview.BarcodeGraphicTracker(mGraphicOverlay, graphic, mContext);
+        com.example.InventoryCheck.BarcodeGraphic graphic = new com.example.InventoryCheck.BarcodeGraphic(mGraphicOverlay);
+        return new com.example.InventoryCheck.BarcodeGraphicTracker(mGraphicOverlay, graphic, mContext);
     }
 
 }

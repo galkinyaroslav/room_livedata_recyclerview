@@ -13,11 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.example.room_livedata_recyclerview;
+package com.example.InventoryCheck;
 
 import android.content.Context;
 
-import com.example.room_livedata_recyclerview.camera.GraphicOverlay;
+import com.example.InventoryCheck.camera.GraphicOverlay;
 import com.google.android.gms.vision.Detector;
 import com.google.android.gms.vision.Tracker;
 import com.google.android.gms.vision.barcode.Barcode;
@@ -32,7 +32,7 @@ import com.google.android.gms.vision.barcode.Barcode;
  */
 public class BarcodeGraphicTracker extends Tracker<Barcode> {
     private GraphicOverlay<BarcodeGraphic> mOverlay;
-    private com.example.room_livedata_recyclerview.BarcodeGraphic mGraphic;
+    private com.example.InventoryCheck.BarcodeGraphic mGraphic;
 
     private BarcodeUpdateListener mBarcodeUpdateListener;
 
@@ -45,7 +45,7 @@ public class BarcodeGraphicTracker extends Tracker<Barcode> {
         void onBarcodeDetected(Barcode barcode);
     }
 
-    BarcodeGraphicTracker(GraphicOverlay<com.example.room_livedata_recyclerview.BarcodeGraphic> mOverlay, com.example.room_livedata_recyclerview.BarcodeGraphic mGraphic,
+    BarcodeGraphicTracker(GraphicOverlay<com.example.InventoryCheck.BarcodeGraphic> mOverlay, com.example.InventoryCheck.BarcodeGraphic mGraphic,
                           Context context) {
         this.mOverlay = mOverlay;
         this.mGraphic = mGraphic;

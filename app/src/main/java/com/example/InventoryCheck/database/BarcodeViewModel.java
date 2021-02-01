@@ -1,4 +1,4 @@
-package com.example.room_livedata_recyclerview.database;
+package com.example.InventoryCheck.database;
 
 import android.app.Application;
 

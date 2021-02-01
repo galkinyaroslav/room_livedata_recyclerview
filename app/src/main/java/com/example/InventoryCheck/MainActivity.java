@@ -1,4 +1,4 @@
-package com.example.room_livedata_recyclerview;
+package com.example.InventoryCheck;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,16 +10,15 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.room_livedata_recyclerview.database.Barcode;
-import com.example.room_livedata_recyclerview.database.BarcodeAdapter;
-import com.example.room_livedata_recyclerview.database.BarcodeViewModel;
+import com.example.InventoryCheck.database.Barcode;
+import com.example.InventoryCheck.database.BarcodeAdapter;
+import com.example.InventoryCheck.database.BarcodeViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;

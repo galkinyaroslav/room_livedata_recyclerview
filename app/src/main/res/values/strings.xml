@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">room_livedata_recyclerview</string>
+    <string name="app_name">InventoryCheck</string>
 
     <string name="ok">OK</string>
     <string name="permission_camera_rationale">Access to the camera is needed for detection</string>

@@ -1,4 +1,4 @@
-package com.example.room_livedata_recyclerview;
+package com.example.InventoryCheck;
 
 import org.junit.Test;
 
